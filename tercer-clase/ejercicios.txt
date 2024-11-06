@@ -1,0 +1,38 @@
+Ejercicio 8: Tipos de Mapeo
+
+Define una interfaz Empleado con propiedades nombre (string), edad (number) y rol (string). Crea un tipo EmpleadoOpcional que sea una versión opcional de Empleado, en el cual todas las propiedades sean opcionales.
+
+Luego, crea una variable empleado1 de tipo EmpleadoOpcional y asigna valores solo a algunas de las propiedades.
+
+Ejercicio 9: Tuplas y Enums
+
+Define un enum llamado Prioridad con valores Baja, Media, Alta, y Urgente. Luego, crea un tipo Tarea que sea una tupla de tres elementos: el nombre de la tarea (string), el número de horas estimadas (number) y la prioridad (Prioridad).
+
+Crea una variable miTarea de tipo Tarea y dale valores. Usa la prioridad Alta para el tercer elemento de la tupla.
+
+Ejercicio 10: Parámetros Rest y Sobrecarga de Funciones
+
+Define una función concatenar que pueda aceptar dos formas de parámetros:
+
+Dos cadenas de texto, y que devuelva la concatenación de ambas.
+Un número variable de cadenas (usando el parámetro rest), y que devuelva todas las cadenas concatenadas.
+Prueba la función concatenar llamándola con dos cadenas y luego con varias.
+
+Ejercicio 11: Propiedades de Solo Lectura
+
+Define una interfaz Persona con propiedades nombre (string), edad (number) y una propiedad de solo lectura id (number).
+
+Crea un objeto persona2 de tipo Persona y verifica que puedas cambiar el nombre y la edad, pero que no puedas modificar el id después de asignarlo.
+
+Ejercicio 12: Clases e Implementación de Interfaces
+
+Define una interfaz Vehiculo con métodos acelerar y frenar (ambos sin parámetros y que devuelvan void). Luego, crea una clase Coche que implemente Vehiculo y que tenga una propiedad velocidad (number) inicializada en 0.
+
+Haz que el método acelerar aumente la velocidad en 10, y el método frenar la disminuya en 10, sin permitir que la velocidad sea negativa. Crea un objeto de tipo Coche y prueba ambos métodos.
+
+Ejercicio 13: Tipos Asertivos y Casting
+
+Define un tipo Persona con propiedades nombre (string) y edad (number). Luego, crea una variable personaJson que contenga un string JSON representando a una persona.
+
+Convierte personaJson a un objeto de tipo Persona usando un tipo asertivo, y accede a sus propiedades nombre y edad.
+
