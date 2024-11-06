@@ -40,3 +40,35 @@ Homework = ['Typescript',2, Priority.Middle]
 console.log(Homework);
 
 
+// ejercicio 10
+
+function append2(cadena:String, cadena2:String){
+  return cadena + " " + cadena2;
+}
+console.log(append2("agustin","cabrera"));
+
+//ejercicio 11
+
+interface Persona3{
+  name: string,
+  age: number,
+  readonly id: number;
+}
+let persona2: Persona3 = {
+  name: "agustin",
+  age: 0,
+  id: 2,
+}
+
+// ejercicio 12
+
+interface Vehicle{
+  acelerate: void;
+  stop: void;
+}
+let vehicle: Vehicle;
+class Car {
+  Vehicle = vehicle;
+  velocity: number = 0;
+};
+
