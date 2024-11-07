@@ -1,0 +1,98 @@
+Ejercicios de TypeScript
+Ejercicio 1
+Crea un tipo personalizado llamado  Estudiante que represente a un alumno, con
+propiedades como  nombre,  edad y  notas (un array de números). Implementa una función
+que permita agregar una nueva nota a un estudiante dado su nombre, y otra función que
+calcule el promedio de notas de un estudiante. Asegúrate de tipar correctamente cada
+elemento.
+Ejercicio 2
+Define una interfaz  Curso con propiedades como  nombre,  profesor (tipo  Profesor, del
+ejercicio anterior) y  estudiantes (un array de  Estudiante). Implementa una función que
+permita crear un curso y asignarle un profesor y una lista de estudiantes. Luego, crea una
+función que, dado el nombre de un curso, devuelva una lista con los nombres de los
+estudiantes inscritos.
+Ejercicio 3
+Crea un tipo llamado  Libro con propiedades  titulo,  autor,  añoPublicacion y  genero.
+Luego, define un tipo  Biblioteca que contenga una propiedad  libros, un array de
+Libro. Implementa una función que permita agregar un libro a la biblioteca, y otra que
+busque todos los libros de un género en particular. Usa  readonly para hacer que los
+atributos de  Libro no puedan ser modificados después de su creación.
+Ejercicio 4
+Define un tipo  Empleado que contenga propiedades como  nombre,  puesto,  salario y un
+método  calcularBono que reciba un porcentaje y devuelva el bono calculado. Implementa
+una función que cree empleados y otra que permita actualizar el puesto y salario de un
+empleado dado su nombre. Usa  type guards para asegurar que los métodos se utilicen
+correctamente en los objetos de tipo  Empleado.
+Ejercicio 5
+Crea un tipo  Vehiculo con propiedades como  marca,  modelo, y  año. Define un tipo
+Coche que extienda de  Vehiculo e incluya propiedades adicionales como  puertas y
+transmision. Luego, implementa una función que permita crear un coche y otra que, dado
+un array de coches, filtre aquellos con una transmisión específica. Usa  type narrowing
+para diferenciar entre  Vehiculo y  Coche si ambos tipos pueden coexistir en el mismo
+array.
+Ejercicio 6
+Crea una interfaz  Producto con propiedades  nombre,  precio y  categoria. Define un tipo
+CarritoDeCompras que sea un array de productos. Implementa una función que permita
+calcular el total de la compra, aplicando un descuento en caso de que el total supere un
+monto determinado. Utiliza los tipos de utilidad de TypeScript para hacer que  Producto sea
+solo de lectura en el carrito.
+Ejercicio 7
+Define un tipo genérico  RespuestaApi<T> que represente una respuesta de API con una
+propiedad  datos de tipo genérico  T y una propiedad  exito de tipo booleano. Luego, crea
+una función que reciba un objeto de tipo  RespuestaApi y, en caso de éxito, imprima los
+datos. Si no, imprime un mensaje de error. Usa tipos genéricos para que funcione con
+cualquier tipo de datos.
+Ejercicio 8
+Crea una interfaz  CuentaBancaria con propiedades como  titular,  saldo, y un método
+depositar que aumente el saldo. Luego, crea una interfaz  CuentaDeAhorro que extienda
+CuentaBancaria y agregue un método  calcularInteres que devuelva el interés basado
+en el saldo. Implementa una función que reciba una cuenta de ahorro, le aplique el interés y
+retorne el saldo actualizado.
+Ejercicio 9
+Define un tipo  Cliente con propiedades  nombre,  email y  telefono? (opcional).
+Implementa una función que reciba un cliente y valide que todos sus datos están completos
+(nombre y email obligatorios). Si falta alguno, imprime un mensaje de advertencia. Usa type
+guards para manejar el caso del teléfono opcional.
+Ejercicio 10
+Crea un tipo  Empleado que tenga propiedades como  id,  nombre,  puesto, y  sueldo.
+Implementa una función  actualizarEmpleado<T, K extends keyof T> que tome un objeto
+Empleado, una clave  K de  Empleado, y un valor  T[K]. Esta función debe actualizar la
+propiedad especificada con el valor dado. Usa tipos de utilidad como  keyof para hacer que
+la función sea genérica y reutilizable.
+Ejercicio 11
+Define un tipo  Configuracion que represente las opciones de configuración de una
+aplicación (con propiedades como  modoOscuro y  idioma). Luego, crea un tipo  Usuario
+que tenga un campo  configuracion de tipo  Configuracion. Implementa una función que
+permita actualizar cualquier opción de configuración de un usuario dado su nombre, sin
+modificar las demás opciones de  Configuracion.
+Ejercicio 12
+Crea un tipo  Inventario que sea un  Record<string, number>, donde la clave sea el
+nombre del producto y el valor sea la cantidad disponible. Implementa una función que
+permita actualizar el inventario, ya sea aumentando o disminuyendo la cantidad de un
+producto dado su nombre. Usa  Record y  Partial para facilitar la actualización de valores.
+Ejercicio 13
+Define un tipo  Pedido con propiedades  productos (un array de  Producto),  fecha, y
+estado (con valores posibles como  "pendiente",  "enviado",  "entregado"). Crea una
+función que permita cambiar el estado de un pedido solo si es válido según el flujo
+( pendiente ➔  enviado ➔  entregado). Usa  as const para definir el flujo de estados y
+garantizar que solo se puedan usar esos valores.
+Ejercicio 14
+Crea un tipo  Tarea que tenga propiedades como  titulo,  descripcion y  completada.
+Define un tipo  ListaDeTareas que sea un array de tareas. Implementa una función que
+reciba una lista de tareas y devuelva una nueva lista con solo las tareas completadas. Usa
+ReadonlyArray para hacer que la lista original sea inmutable.
+Ejercicio 15
+Define una interfaz  Dispositivo con propiedades como  nombre y  estado (booleano).
+Crea una función que reciba un array de dispositivos y cambie el estado de todos a  true.
+Usa el tipo  ReadonlyArray para hacer que el array de entrada no sea modificable, y
+devuelve un nuevo array actualizado.
+Ejercicio 16
+Crea un tipo  Tienda con propiedades  productos (un  Record<string, Producto>),
+ubicacion, y  nombre. Implementa una función que permita buscar un producto por su
+nombre en una tienda y devuelva la información del producto. Usa  keyof para acceder de
+forma segura a los productos dentro del  Record.
+Ejercicio 17
+Define una interfaz  Persona con propiedades  nombre y  edad, y crea una función genérica
+imprimirInfo<T extends Persona>(obj: T) que imprima solo las propiedades  nombre y
+edad de cualquier tipo que extienda  Persona. Usa genéricos para asegurar que la función
+funcione con cualquier tipo que extienda  Persona.
