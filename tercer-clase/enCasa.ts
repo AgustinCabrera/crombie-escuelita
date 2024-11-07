@@ -72,3 +72,27 @@ class Car {
   velocity: number = 0;
 };
 
+enum Prioridad {
+  Baja="Baja",
+  Media="Media",
+  Alta="Alta",
+  Urgente="Urgente"
+}
+
+type Tarea = [string, number, Prioridad];
+type ObjetoTarea = {
+  nombre:string,
+  cantidadHoras:number,
+  prioridad: Prioridad
+}
+
+const miTarea: Tarea = ["Crear un bucket en GCP",2,Prioridad.Media];
+
+const miObjetoTarea: ObjetoTarea = {
+  nombre:"Crear un bucket en AWS",
+  cantidadHoras:2,
+  prioridad:Prioridad.Urgente
+}
+
+console.log(miObjetoTarea, miTarea)
+
