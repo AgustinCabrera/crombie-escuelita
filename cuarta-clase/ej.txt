@@ -1,5 +1,5 @@
 Ejercicios de TypeScript
-Ejercicio 1
+Ejercicio 1 
 Crea un tipo personalizado llamado  Estudiante que represente a un alumno, con
 propiedades como  nombre,  edad y  notas (un array de números). Implementa una función
 que permita agregar una nueva nota a un estudiante dado su nombre, y otra función que
