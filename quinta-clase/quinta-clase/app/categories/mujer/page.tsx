@@ -1,10 +1,11 @@
+import ProductGrid from '@/app/components/ProductCard/ProductGrid'
 import Link from 'next/link'
 import React from 'react'
 
 const mujer = () => {
   return (
     <>
-    <div>Mujer</div>
+    <ProductGrid category='women'/>
     <Link href="/"> Return Home</Link>
     </>
   )

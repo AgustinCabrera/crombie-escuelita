@@ -1,10 +1,11 @@
 import Link from 'next/link'
 import React from 'react'
+import ProductGrid from '@/app/components/ProductCard/ProductGrid'
 
 const Hombre = () => {
   return (
     <>
-    <div>Hombre</div>
+    <ProductGrid category='men'/> 
     <Link href="/"> Return Home</Link>
     </>
   )
