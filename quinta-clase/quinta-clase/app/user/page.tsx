@@ -1,13 +1,22 @@
-"use client"; 
+"use client";
+import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 
 interface UserType {
-  id: number;
-  name: string;
-  username: string;
+  name: {
+    first: string;
+    last: string;
+  };
   email: string;
+  login: {
+    username: string;
+    uuid: string;
+  };
+  picture: {
+    large: string;
+  };
 }
-
+//<Image src={user.picture.large} alt={`${user.name.first} ${user.name.last} `} width={100} height={100} />
 const User = () => {
   const [user, setUser] = useState<UserType | null>(null);
 
@@ -21,7 +30,7 @@ const User = () => {
           },
         });
         const data = await response.json();
-        setUser(data);
+        setUser(data.results[0]); 
       } catch (error) {
         console.error('Error fetching user:', error);
       }
@@ -36,11 +45,13 @@ const User = () => {
 
   return (
     <>
-      <h1>User</h1>
-      <p>ID: {user.id}</p>
-      <p>Name: {user.name}</p>
-      <p>Username: {user.username}</p>
-      <p>Email: {user.email}</p>
+      <div className='user-container'>
+        <h1>Welcome {user.name.first} {user.name.last}</h1>
+        <img src={user.picture.large} alt="profileImage" />
+        <p>Username: {user.login.username}</p>
+        <p>Email: {user.email}</p>
+      </div>
+      
     </>
   );
 };

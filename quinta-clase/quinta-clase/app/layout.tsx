@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Link from "next/link";
+import Footer from "./lib/footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -31,18 +32,16 @@ export default function RootLayout({
       >
         <div className="navbar">
           <ul><Link href="/">Home</Link></ul>
-          <ul><Link href="/categories/mujer">Mujeres</Link></ul>
-          <ul><Link href="/categories/hombre">Hombres</Link></ul>
-          <ul><Link href="/categories/nene">Nenes</Link></ul>
+          <ul><Link href="/categories/women">Women</Link></ul>
+          <ul><Link href="/categories/men">Men</Link></ul>
+          <ul><Link href="/categories/children">Kids</Link></ul>
           <ul><Link href="/user">User</Link></ul>
         </div>
         <div className="flex-grow">
           {children}
         </div>
         <footer>
-          <p>All rights reserved</p>
-          <p>follow us</p>
-          <Link href="/"> Return Home</Link>
+          <Footer></Footer>
         </footer>
       </body>
     </html>

@@ -1,13 +1,13 @@
 import React from 'react';
 import ProductCard from './ProductCard';
-import products from '../../data/products';
+import {productsdb} from '../../data/productsDB';
 
 interface ProductGridProps {
   category: string;
 }
 
 const ProductGrid: React.FC<ProductGridProps> = ({ category }) => {
-  const filteredProducts = products.filter((product) => product.category === category);
+  const filteredProducts = productsdb.filter((product) => product.category === category);
 
   return (
     <div className="product-grid">

@@ -1,4 +1,4 @@
- export const products = [
+export const productsdb = [
   {
     "id": 1,
     "name": "T-shirt",
@@ -52,6 +52,14 @@
     "name": "Jacket",
     "price": 99.99,
     "category":"children",
+    "imageUrl": "/products/jacketc.jpg",
+    "description": "A brief description of Product 7."
+  },
+  {
+    "id": 7,
+    "name": "Jacket",
+    "price": 99.99,
+    "category":"shoes",
     "imageUrl": "/products/jacketc.jpg",
     "description": "A brief description of Product 7."
   }
