@@ -1,6 +1,6 @@
 import React from 'react';
 import ProductCard from './ProductCard';
-import products from '../../data/products.json';
+import products from '../../data/products';
 
 interface ProductGridProps {
   category: string;

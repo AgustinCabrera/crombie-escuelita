@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col `}
       >
         <div className="navbar">
           <ul><Link href="/">Home</Link></ul>
@@ -36,11 +36,17 @@ export default function RootLayout({
           <ul><Link href="/categories/nene">Nenes</Link></ul>
           <ul><Link href="/user">User</Link></ul>
         </div>
-        {children}
+        <div className="flex-grow">
+          {children}
+        </div>
         <footer>
-          <p>Footer</p>
+          <p>All rights reserved</p>
+          <p>follow us</p>
+          <Link href="/"> Return Home</Link>
         </footer>
       </body>
     </html>
   );
 }
+
+
