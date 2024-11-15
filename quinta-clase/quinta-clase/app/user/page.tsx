@@ -1,6 +1,6 @@
 "use client";
-import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
+import Loader from '../lib/loader';
 
 interface UserType {
   name: {
@@ -40,7 +40,7 @@ const User = () => {
   }, []);
 
   if (!user) {
-    return <p>Loading...</p>;
+    return <Loader/>
   }
 
   return (
