@@ -1,6 +1,7 @@
 "use client";
+import { log } from 'console';
 import React, { useState, useEffect } from 'react';
-import Loader from '../lib/loader';
+
 
 interface UserType {
   name: {
@@ -40,7 +41,7 @@ const User = () => {
   }, []);
 
   if (!user) {
-    return <Loader/>
+    return console.error('Error fetching user');
   }
 
   return (
