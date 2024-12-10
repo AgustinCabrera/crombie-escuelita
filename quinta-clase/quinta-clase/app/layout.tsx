@@ -36,6 +36,8 @@ export default function RootLayout({
           <ul><Link href="/categories/men">Men</Link></ul>
           <ul><Link href="/categories/children">Kids</Link></ul>
           <ul><Link href="/user">User</Link></ul>
+          <ul><Link href="/pages/login">Login</Link></ul>
+
         </div>
         <div className="flex-grow">
           {children}

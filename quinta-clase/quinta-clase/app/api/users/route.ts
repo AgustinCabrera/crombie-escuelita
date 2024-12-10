@@ -1,5 +1,5 @@
-import {NextRequest} from "next/server";
-const users = [];
+import {NextRequest,NextResponse} from "next/server";
+
 export async function GET(request: NextRequest){
   return new Response(JSON.stringify(users),{
     headers:{
@@ -8,7 +8,7 @@ export async function GET(request: NextRequest){
     status:200
   });
 }
-export async function POST(request: NextRequest){
+export async function POST(request: NextRequest, response: NextResponse){
 try {
   const data = await request.json();
   users.push(data);

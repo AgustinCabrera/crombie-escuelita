@@ -1,3 +1,7 @@
+"use client";
+import { useEffect, useState } from "react";
+
+/*
 import { productsdb } from "@/app/data/productsDB";
 import ProductGrid from "@/app/components/ProductCard/ProductGrid";
 
@@ -24,3 +28,28 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({ params }) => {
 };
 
 export default CategoryPage;
+*/
+const Categories = () => {
+  const [categories, setCategories] = useState<any[]>([]);
+  useEffect(() => {
+    const fetchCategories = async () => {
+      const response = await fetch("http://localhost:3001/categories");
+      const data = await response.json();
+      setCategories(data); // Store categories in state
+    };
+    fetchCategories();
+  }, []); // Empty dependency array ensures this runs once when the component mounts
+  return (
+    <div>
+      <h1>Categories</h1>
+      <ul>
+        {categories.map((category) => (
+          <li key={category.id}>
+            {category.name} {/* Display the category name */}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+export default Categories;

@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ProductCard from './ProductCard';
-import {productsdb} from '../../data/productsDB';
 
-interface ProductGridProps {
-  category: string;
+const Products = () =>{
+  const [products, setProducts] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const response = await fetch('http://localhost:3001/products');
+      const data = await response.json();
+      setProducts(data);
+      setLoading(false);
+    };
+
+    fetchProducts();
+  }, []);
+
+  if (loading) {
+    return <h2>Loading...</h2>;
 }
-
-const ProductGrid: React.FC<ProductGridProps> = ({ category }) => {
-  const filteredProducts = productsdb.filter((product) => product.category === category);
 
   return (
     <div className="product-grid">
@@ -23,4 +34,4 @@ const ProductGrid: React.FC<ProductGridProps> = ({ category }) => {
   );
 };
 
-export default ProductGrid;
+export default Products;
