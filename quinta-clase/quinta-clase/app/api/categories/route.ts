@@ -1,21 +1,25 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { isAdmin } from "@/app/lib/authorize";
+import { fetchCategories } from "@/app/lib/categories";
+import { NextResponse } from "next/server";
 
-const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  if (req.method === "POST"){
+export async function GET(req: NextRequest, res: NextResponse){
+  try {
+    const categories = await fetchCategories();
+    return NextResponse.json(categories);
+  } catch (error) {
+    return NextResponse.json({message: 'Error fetching categories', error: error.message}, {status: 500});
+  }
+}
+export async function POST(req: NextApiRequest, res: NextApiResponse){
+  try {
     const user = await isAdmin(req,res);
     if(!user){
       return res.status(403).json({message: "Forbidden: Admins only"});
     }
-    await fetch('http://localhost:3001/categories',{
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(req.body)
-    })
-    res.status(200).json({message: "Category created"});
+    const categories = await fetchCategories();
+    return NextResponse.json(categories);
+  } catch (error) {
+    return res.status(500).json({message: "Error adding category", error: error.message});
   }
-  return res.status(400).json({message: " Category not found"}); 
 }
-export default handler;

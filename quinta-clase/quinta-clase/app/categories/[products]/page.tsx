@@ -1,5 +1,7 @@
 "use client";
+import { fetchCategories } from "@/app/lib/categories";
 import { useEffect, useState } from "react";
+
 
 /*
 import { productsdb } from "@/app/data/productsDB";
@@ -33,7 +35,7 @@ const Categories = () => {
   const [categories, setCategories] = useState<any[]>([]);
   useEffect(() => {
     const fetchCategories = async () => {
-      const response = await fetch("http://localhost:3001/categories");
+      const response = await fetchCategories();
       const data = await response.json();
       setCategories(data); // Store categories in state
     };
@@ -45,7 +47,7 @@ const Categories = () => {
       <ul>
         {categories.map((category) => (
           <li key={category.id}>
-            {category.name} {/* Display the category name */}
+            {category.name}
           </li>
         ))}
       </ul>

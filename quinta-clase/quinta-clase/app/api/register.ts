@@ -1,15 +1,9 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import('../../db.json')
+import { fetchUsers } from '../lib/users';
 
-let users: any[] = [];
+const users = await fetchUsers();
 
-async function getUsers(){
-  const response = await fetch('http://localhost:3001/users');
-  const data = await response.json();
-  users = data;
-}
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  await getUsers();
 
   if (req.method === 'POST') {
     const { name, email, password, role } = req.body;
@@ -25,7 +19,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(400).json({ message: 'User already exists' });
     }
 
-    // Add the new user to the list
     const newUser = { 
       id: users.length + 1, 
       name, 
