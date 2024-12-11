@@ -1,57 +1,32 @@
-"use client";
-import { fetchCategories } from "@/app/lib/categories";
-import { useEffect, useState } from "react";
-
-
-/*
-import { productsdb } from "@/app/data/productsDB";
-import ProductGrid from "@/app/components/ProductCard/ProductGrid";
+'use client';
+import { useEffect, useState } from 'react';
+import { fetchProducts } from '@/app/lib/products';
+import ProductGrid from '@/app/components/ProductGrid';
 
 interface CategoryPageProps {
   params: { products: string };
 }
-// Genera paramatros estaticos para cada categoria
-export async function generateStaticParams() {
-  const categories = Array.from(new Set(productsdb.map((product) => product.category)));
 
-  return categories.map((category) => ({
-    products: category,
-  }));
-}
-const CategoryPage: React.FC<CategoryPageProps> = async ({ params }) => {
-  const {products: category } = await params;
+const CategoryPage: React.FC<CategoryPageProps> = ({ params }) => {
+  const [products, setProducts] = useState([]);
+  const category = params.products;
+
+  useEffect(() => {
+    const getProducts = async () => {
+      const allProducts = await fetchProducts();
+      const categoryProducts = allProducts.filter(product => product.category === category);
+      setProducts(categoryProducts);
+    };
+    getProducts();
+  }, [category]);
 
   return (
     <main>
-      <h1>{category.charAt(0).toUpperCase() + category.slice(1)} Section</h1>
-      <ProductGrid category={category} />
+      <h1 className="text-2xl font-bold mb-4">{category.charAt(0).toUpperCase() + category.slice(1)} Section</h1>
+      <ProductGrid products={products} />
     </main>
   );
 };
 
 export default CategoryPage;
-*/
-const Categories = () => {
-  const [categories, setCategories] = useState<any[]>([]);
-  useEffect(() => {
-    const fetchCategories = async () => {
-      const response = await fetchCategories();
-      const data = await response.json();
-      setCategories(data); // Store categories in state
-    };
-    fetchCategories();
-  }, []); // Empty dependency array ensures this runs once when the component mounts
-  return (
-    <div>
-      <h1>Categories</h1>
-      <ul>
-        {categories.map((category) => (
-          <li key={category.id}>
-            {category.name}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
-export default Categories;
+

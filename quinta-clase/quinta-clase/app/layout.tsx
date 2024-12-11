@@ -32,7 +32,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col `}
       >
-        <Theme>
         <div className="navbar">
           <ul><Link href="/">Home</Link></ul>
           <ul><Link href="/categories/women">Women</Link></ul>
@@ -48,7 +47,7 @@ export default function RootLayout({
         <footer>
           <Footer></Footer>
         </footer>
-        </Theme>
+      
       </body>
     </html>
   );
